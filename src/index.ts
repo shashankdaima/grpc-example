@@ -45,6 +45,6 @@ const PERSONS = [
 const server = new grpc.Server();
 
 server.addService((personProto.AddressBookService).service, handler);
-server.bindAsync('0.0.0.0:50051', grpc.ServerCredentials.createInsecure(), () => {
+server.bindAsync(`0.0.0.0:${process.env.PORT}`, grpc.ServerCredentials.createInsecure(), () => {
     server.start();
 });
